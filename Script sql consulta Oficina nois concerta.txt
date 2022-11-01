@@ -1,0 +1,32 @@
+Traga todos os carros que foram avaliados como revisao.
+SELECT * FROM Avaliação,
+	WHERE Revisao = TRUE;
+
+Ordene de forma decrescente o nome dos mecanicos cadastrados na equipe de conserto.
+SELECT * FROM Mecânico,
+	WHERE Mecânico.Especialidade = 'Concerto',
+	ORDER BY Mecânico.Nome DESC;
+
+Filtre se a ordem de serviço do cliente esta concluida.
+
+SELECT Cliente.nome, Ordem de Serviço.Status
+	FROM Cliente.nome
+	WHERE Ordem de Serviço.Status = 'Concluida'
+	GROUP BY Cliente.Pnome
+	HAVING Ordem de Serviço.Status
+
+Conte quantas ordens concluidas por cliente
+
+SELECT Cliente.nome, Ordem de Serviço.Status
+	FROM Cliente.nome
+	WHERE Ordem de Serviço.Status = 'Concluida'
+	HAVING COUNT(Ordem de Serviço.Status)	
+	GROUP BY COUNT(Ordem de Serviço.Status)
+
+Faça uma junção entre a tabela cliente e ordem de serviço para saber qual 
+cliente teve a mao de obra maior que 500.
+
+SELECT Cliente.nome, Ordem de Serviço.Valor
+	FROM Cliente.nome
+	FULL OUTER JOIN Serviço.Valor ON Cliente.nome = Serviço.Valor >= 500
+	ORDER BY Serviço.Valor;
